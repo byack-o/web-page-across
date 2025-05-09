@@ -19,3 +19,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // その他のインタラクティブな機能をここに追加
 });
+
+function handleOrientation(event) {
+  const alpha = event.alpha; // 端末の回転（方位）
+  const beta = event.beta;   // 前後の傾き
+  const gamma = event.gamma; // 左右の傾き
+
+  const output = document.getElementById('output');
+  output.textContent = `alpha: ${alpha?.toFixed(2)}, beta: ${beta?.toFixed(2)}, gamma: ${gamma?.toFixed(2)}`;
+}
+
+function initOrientation() {
+  if (
+    typeof DeviceOrientationEvent !== 'undefined' &&
+    typeof DeviceOrientationEvent.requestPermission === 'function'
+  ) {
+    // iOS 13以降：ユーザーの許可が必要
+    DeviceOrientationEvent.requestPermission()
+      .then(permissionState => {
+        if (permissionState === 'granted') {
+          window.addEventListener('deviceorientation', handleOrientation);
+        } else {
+          alert('センサーの使用が許可されませんでした。');
+        }
+      })
+      .catch(err => {
+        console.error('センサー許可リクエストエラー:', err);
+      });
+  } else {
+    // Androidなどはそのまま使える
+    window.addEventListener('deviceorientation', handleOrientation);
+  }
+}
+
+// ページ読み込み後に初期化
+window.addEventListener('load', initOrientation);

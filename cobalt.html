@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>画像の重ね表示</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .image-stack {
+      position: relative;
+      width: 66.666vw; /* 画面幅の2/3 */
+    }
+
+    .image-stack img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-stack img:nth-child(3) {
+      z-index: 1;
+    }
+
+    .image-stack img:nth-child(2) {
+      z-index: 2;
+      opacity: 1; /* 半透明にする場合 */
+    }
+
+    .image-stack img:nth-child(1) {
+      z-index: 3;
+      opacity: 1;
+    }
+
+    .image-stack::before {
+      content: "";
+      display: block;
+      padding-top: 66.666%; /* 3:2 のアスペ�
