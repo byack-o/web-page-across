@@ -31,6 +31,7 @@ function handleOrientation(event) {
 }
 
 function initOrientation() {
+  console.log('センサー初期化');
   if (
     typeof DeviceOrientationEvent !== 'undefined' &&
     typeof DeviceOrientationEvent.requestPermission === 'function'
@@ -53,5 +54,9 @@ function initOrientation() {
   }
 }
 
+
+// ボタンにイベント登録
+document.getElementById('startButton').addEventListener('click', initOrientation);
+
 // ページ読み込み後に初期化
-window.addEventListener('load', initOrientation);
+//window.addEventListener('load', initOrientation);
