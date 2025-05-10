@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function handleOrientation(event) {
+  console.log(event); // デバッグ用にコンソールに出力
   const alpha = event.alpha; // 端末の回転（方位）
   const beta = event.beta;   // 前後の傾き
   const gamma = event.gamma; // 左右の傾き
