@@ -12,7 +12,8 @@ function handleOrientation(event) {
     const moveX = -Math.tan(gamma * (Math.PI / 180)) * depth;
     //const moveY = Math.tan(beta * (Math.PI / 180)) * depth;
 
-    img.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    //img.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    img.style.transform = `translate(${moveX}px, 0px)`;
   });
 
   
