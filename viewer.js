@@ -1,4 +1,4 @@
-const layerDepths = [0.5, 1.0, 1.5]
+const layerDepths = [500, 1000, 1500]
 
 function handleOrientation(event) {
   //const alpha = event.alpha; // 端末の回転（方位）
