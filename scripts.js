@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function handleOrientation(event) {
-  console.log(event); // デバッグ用にコンソールに出力
   const alpha = event.alpha; // 端末の回転（方位）
   const beta = event.beta;   // 前後の傾き
   const gamma = event.gamma; // 左右の傾き
@@ -31,7 +30,7 @@ function handleOrientation(event) {
 }
 
 function initOrientation() {
-  console.log('センサー初期化');
+  window.location.href = 'cobalt.html';
   if (
     typeof DeviceOrientationEvent !== 'undefined' &&
     typeof DeviceOrientationEvent.requestPermission === 'function'
@@ -56,7 +55,7 @@ function initOrientation() {
 
 
 // ボタンにイベント登録
-document.getElementById('startButton').addEventListener('click', initOrientation);
+document.getElementById('startOrientation').addEventListener('click', initOrientation);
 
 // ページ読み込み後に初期化
 //window.addEventListener('load', initOrientation);
