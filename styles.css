@@ -53,3 +53,17 @@ footer {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.app-icon {
+  border-radius:60px;
+  padding : 20px ;
+  align-items: center;
+  justify-content: center; /* 水平方向の中央揃え */
+  align-items: center;
+}
+
+.app-icon-container {
+  display: grid;
+  place-items: center;
+  padding-bottom: 20px;
+}
