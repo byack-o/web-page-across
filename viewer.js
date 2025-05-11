@@ -9,8 +9,8 @@ function handleOrientation(event) {
 
   images.forEach((img, i) => {
     const depth = layerDepths[i] || 1.0;
-    const moveX = gamma * depth;
-    const moveY = beta * depth;
+    const moveX = -Math.tan(gamma * (Math.PI / 180)) * depth;
+    const moveY = Math.tan(beta * (Math.PI / 180)) * depth;
 
     img.style.transform = `translate(${moveX}px, ${moveY}px)`;
   });
