@@ -31,7 +31,6 @@ function initOrientation() {
       .then(permissionState => {
         if (permissionState === 'granted') {
           window.location.href = 'cobalt.html';
-          //window.addEventListener('deviceorientation', handleOrientation);
         } else {
           alert('センサーの使用が許可されませんでした。');
         }
@@ -42,13 +41,9 @@ function initOrientation() {
   } else {
     // Androidなどはそのまま使える
     window.location.href = 'cobalt.html';
-    //window.addEventListener('deviceorientation', handleOrientation);
   }
 }
 
 
 // ボタンにイベント登録
 document.getElementById('startOrientation').addEventListener('click', initOrientation);
-
-// ページ読み込み後に初期化
-//window.addEventListener('load', initOrientation);
