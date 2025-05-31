@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>作品例 : アスタロト（魔法使いと黒猫のウィズより）</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .image-stack {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .image-stack img:nth-child(3) {
+      z-index: 1;
+    }
+
+    .image-stack img:nth-child(2) {
+      z-index: 2;
+      opacity: 1; /* 半透明にする場合 */
+    }
+
+    .image-stack img:nth-child(1) {
+      z-index: 3;
+      opacity: 1;
+    }
+
+
+    p {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .image-stack img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.05s linear; /* なめらかな動き */
+      will-change: transform;
+      pointer-events: none; /* 画像タップ不可にしておくと動作が安定 */
+    }
+  </style>
+</head>
+<body>
+  <div class="image-stack">
+    <img src="./astaroth1.PNG" >
+    <img src="./astaroth2.PNG" >
+    <img src="./astaroth3.PNG" >
+  </div>
+
+  <script type="text/javascript">
+  const layerDepths = [-100, 100, 400]
+  </script>
+  <script src="viewer.js"></script>
+</body>
+</html>
