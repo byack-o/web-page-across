@@ -1,3 +1,6 @@
+let baseBeta = null;
+let baseGamma = null;
+
 function handleOrientation(event) {
   //const alpha = event.alpha; // 端末の回転（方位）
   const beta = event.beta ?? 0;   // 前後の傾き（上下）
